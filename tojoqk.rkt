@@ -5,17 +5,17 @@
 (define c1 130)
 (define c2 110)
 (define c3 90)
+(define bk 255)
 
 (define base (text "Tojo" 10 (make-color c0 c0 c0)))
 (define (p1 k) (text "Q" 6
                      (if (even? k)
-                         (make-color c1 c2 c1)
-                         (make-color c1 c2 c3))))
+                         (make-color c3 c3 c3)
+                         (make-color c1 c1 c1))))
 (define (p2 k) (text "K" 6
                      (if (even? k)
-                         (make-color c2 c1 c2)
-                         (make-color c1 c2 c1))))
-(define bk 240)
+                         (make-color c1 c1 c1)
+                         (make-color c3 c3 c3))))
 
 (define TojoQK
   (let* ([tojoqk
