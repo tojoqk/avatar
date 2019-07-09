@@ -31,11 +31,15 @@
     (overlay tojoqk background)))
 (provide TojoQK)
 
+(define TojoQK-512x512
+  (scale (/ 256.0 (image-width TojoQK))
+         TojoQK))
+
 (define TojoQK-256x256
   (scale (/ 256.0 (image-width TojoQK))
          TojoQK))
 
 (module+ main
   (save-image TojoQK-256x256 "TojoQK-256x256.png")
-  #;
+  (save-image TojoQK-512x512 "TojoQK-512x512.png")
   (save-image TojoQK "TojoQK.png"))
