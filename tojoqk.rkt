@@ -1,24 +1,34 @@
 #lang racket
 (require 2htdp/image)
 
-(define size 10)
-(define base (text "Tojo" size "black"))
-(define p1 (text "Q" size "black"))
-(define p2 (text "K" size "black"))
+(define c0 100)
+(define c1 130)
+(define c2 110)
+(define c3 90)
+
+(define base (text "Tojo" 10 (make-color c0 c0 c0)))
+(define (p1 k) (text "Q" 6
+                     (if (even? k)
+                         (make-color c1 c2 c1)
+                         (make-color c1 c2 c3))))
+(define (p2 k) (text "K" 6
+                     (if (even? k)
+                         (make-color c2 c1 c2)
+                         (make-color c1 c2 c1))))
+(define bk 240)
 
 (define TojoQK
   (let* ([tojoqk
-          (let loop ([n (* 36 1)])
+          (let loop ([n 36])
             (cond
               [(zero? n) base]
               [else
-               (beside p1
-                       (scale 1.08 (rotate 110 (loop (- n 1))))
-                       p2)]))]
+               (beside (p1 n)
+                       (scale 1.04 (rotate 110 (loop (- n 1))))
+                       (p2 n))]))]
          [background
-          (rectangle (image-width tojoqk)
-                     (image-height tojoqk)
-                     "solid" "white")])
+          (circle (quotient (image-width tojoqk) 2)
+                  "solid" (make-color bk bk bk))])
     (overlay tojoqk background)))
 (provide TojoQK)
 
