@@ -36,4 +36,6 @@
          TojoQK))
 
 (module+ main
-  (save-image TojoQK-256x256 "TojoQK.png"))
+  (save-image TojoQK-256x256 "TojoQK-256x256.png")
+  #;
+  (save-image TojoQK "TojoQK.png"))
