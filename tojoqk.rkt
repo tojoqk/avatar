@@ -32,7 +32,7 @@
 (provide TojoQK)
 
 (define TojoQK-512x512
-  (scale (/ 256.0 (image-width TojoQK))
+  (scale (/ 512.0 (image-width TojoQK))
          TojoQK))
 
 (define TojoQK-256x256
